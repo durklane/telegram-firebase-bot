@@ -2,11 +2,11 @@ import firebase_admin
 from firebase_admin import credentials, firestore
 from telegram.ext import Updater, CommandHandler
 
-# Configurações
-ADMIN_ID = 7742538929  # teu ID de admin
+# ID do administrador
+ADMIN_ID = 7742538929  
 
 # Conectar ao Firebase
-cred = credentials.Certificate("serviceAccountKey.json")  # arquivo que tu vais baixar do Firebase
+cred = credentials.Certificate("serviceAccountKey.json")  # <<< Arquivo do Firebase
 firebase_admin.initialize_app(cred)
 db = firestore.client()
 
@@ -15,8 +15,7 @@ def start(update, context):
     update.message.reply_text("✅ Bot conectado com Firebase!")
 
 def main():
-    # Coloca teu token do Telegram aqui
-    updater = Updater("COLOCA_TEU_TOKEN_AQUI", use_context=True)
+    updater = Updater("AAEtOkC_Ei4Bhp3eMBlxx_gRyfDnZz1BI9Q"), use_context=True)  # <<< Teu token aqui
     dp = updater.dispatcher
 
     dp.add_handler(CommandHandler("start", start))
